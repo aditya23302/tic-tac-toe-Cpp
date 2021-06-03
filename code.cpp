@@ -3,6 +3,7 @@ using namespace std;
 
 char matrix[3][3]={'1','2','3','4','5','6','7','8','9'};
 char player='X';
+int n;
 void draw()
 {
     system("cls");
@@ -98,21 +99,28 @@ char win()
 
 int main()
 {
+    n=0;
     draw();
     while(1)
     {
+	n++;
         input();
         draw();
         if(win()=='X')
         {
-            cout<<"X wins"<<endl;
+            cout<<"---------------------X wins------------------"<<endl;
             break;
         }
         else if(win()=='O')
         {
-            cout<<"O wins"<<endl;
+            cout<<"-------------------O wins-------------------"<<endl;
             break;
         }
+	else if(win()=='.' && n==9)
+	{
+		cout<<"--------------------Game Draw-------------------"<<endl;
+		break;
+	}
         toggle();
     }
     system("pause");
